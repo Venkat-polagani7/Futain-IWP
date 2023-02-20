@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <title>Funtain News</title>
+  </head>
+  <body>
+    <h1 style="text-align:center">FUNTAIN NEWS</h1>
+    <h4>Read daily news here...</h4>
+    <div class="container">
+      <center>
+      <div class="spinner-border" role="status" id="loading"></div>
+    </center>
+  <div class="row row-cols-1 row-cols-md-3 g-4" id="news"></div>
+</div>
+  <script>
+
+window.addEventListener('load', (event) => {
+  const api_url =
+    "https://techcrunch.com/wp-json/wp/v2/posts?per_page=100&context=embed";
+
+// Defining async function
+  async function getapi(url) {
+
+  // Storing response
+  const response = await fetch(url);
+
+  // Storing data in form of JSON
+  var data = await response.json();
+  console.log(data);
+  if (response) {
+      hideloader();
+  }
+  show(data);
+}
+// Calling that async function
+getapi(api_url);
+
+// Function to hide the loader
+function hideloader() {
+  document.getElementById('loading').style.display = 'none';
+}
+// Function to define innerHTML for HTML table
+function show(data) {
+  let tab = ``;
+
+  // Loop to access all rows
+  for (let item of data) {
+      // let description = item.course_description.substring(0, 100).concat('...')
+      tab += `
+      <div class="col-12 col-md-6 mb-6 col-lg-4 d-flex">
+      <div class="card shadow-light-lg mb-6 mb-md-0 lift lift-lg">
+          <img src=${item.jetpack_featured_media_url} alt="" class="card-img-top">
+            <div class="card-body position-relative">
+              <div class="position-relative text-right mt-n8 mr-n4 mb-3">
+                <span class="badge badge-pill badge-success">
+                  <span class="h6 text-uppercase"><i class="fa fa-check"></i></span>
+                </span>
+              </div>
+
+              <h3 class="text-capitalize" style="font-family:poppins" >
+                ${item.title.rendered}
+              </h3>
+
+              <p class="text-muted">
+                ${item.excerpt.rendered}
+              </p>
+              <button type="button" href="#showModal" id=${item.course_id} data-toggle="modal" class="btn btn-danger font-weight-bold text-decoration-none" onclick="showCourses(this.id)">
+                Read more  <i class="fe fe-arrow-right ml-3"></i>
+              </button>
+              <p>${item.date}</p>
+
+            </div>
+            </div>
+          </div>
+          `;
+  }
+  // Setting innerHTML as tab variable
+  document.getElementById("news").innerHTML = tab;
+}
+})
+  </script>
+  </body>
+</html>
