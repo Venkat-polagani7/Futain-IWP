@@ -1,6 +1,6 @@
 **FUNTAIN**
 
-Funtain is a dynamic website that offers a range of features to enhance your online experience. Whether you want to watch, upload or share videos, check the latest news updates or learn about your favorite recipes, Futain has got you covered.
+Funtain is a dynamic website that offers a range of features to enhance your online experience. Whether you want to watch, upload or share videos, check the latest news updates or learn about your favorite recipes, Funtain has got you covered.
 
 **Features** :
 
