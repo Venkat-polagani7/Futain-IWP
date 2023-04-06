@@ -1,8 +1,8 @@
-**Funtain**
+**FUNTAIN**
 
 Funtain is a dynamic website that offers a range of features to enhance your online experience. Whether you want to watch, upload or share videos, check the latest news updates or learn about your favorite recipes, Futain has got you covered.
 
-Features :
+**Features** :
 
 Video Sharing: Share your favorite videos with others or watch the latest trending videos uploaded by other users.
 
@@ -14,11 +14,16 @@ Easy Navigation: Futain features a user-friendly interface that makes navigation
 
 Interactive Community: Join a community of like-minded individuals who share your interests and passions.
 
-#Technologies Used
+**Technologies Used** :
+
 Funtain is built using a range of technologies to provide a seamless and reliable user experience. Some of the technologies used include:
 
 HTML5
+
 CSS3
+
 JavaScript
+
 Node.js
+
 MongoDB
